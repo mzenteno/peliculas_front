@@ -1,6 +1,8 @@
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 //Obtener pelicula x Id
 export const fetchComentariosFindAllByxIdPelicula = async (idPelicula) => {
-  const response = await fetch(`http://localhost:8080/api/v1/comentarios/peliculas/${idPelicula}`);
+  const response = await fetch(`${API_BASE_URL}/comentarios/peliculas/${idPelicula}`);
 
   if (!response.ok) {
     throw new Error("error al consumir la api");
@@ -12,7 +14,7 @@ export const fetchComentariosFindAllByxIdPelicula = async (idPelicula) => {
 //Nuevo comentario
 export const fetchComentariosNuevo = async (data) => {
   try {
-    const response = await fetch("http://localhost:8080/api/v1/comentarios/create", {
+    const response = await fetch("${API_BASE_URL}/comentarios/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +36,7 @@ export const fetchComentariosNuevo = async (data) => {
 //Adicionar me gusta
 export const fetchComentarioAdicionarMeGusta = async (idComentario) => {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/comentarios/${idComentario}/adicionar-me-gusta`, {
+    const response = await fetch(`${API_BASE_URL}/comentarios/${idComentario}/adicionar-me-gusta`, {
       method: "PUT",
     });
 

@@ -5,8 +5,6 @@ import Navbar from "@components/navbar/Navbar";
 import Detail from "@components/detail/Detail";
 import { Route, Routes } from "react-router-dom";
 
-// "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-
 const App = () => {
   return (
     <>

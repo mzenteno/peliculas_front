@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import stylesCard from "@components/utils/Card.module.css";
+import Loading from "@components/utils/Loading";
 import DetailInfo from "@components/detail/DetailInfo";
 // import DetailVideo from "@components/detail/DetailVideo";
 import DetailDevices from "@components/detail/DetailDevices";
@@ -20,7 +21,7 @@ const Detail = () => {
     }
   }, [fetchData]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) {
     return <div>{error && <p>Error loading movie: {error.message}</p>}</div>;
   }

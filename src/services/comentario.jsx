@@ -14,7 +14,7 @@ export const fetchComentariosFindAllByxIdPelicula = async (idPelicula) => {
 //Nuevo comentario
 export const fetchComentariosNuevo = async (data) => {
   try {
-    const response = await fetch("${API_BASE_URL}/comentarios/create", {
+    const response = await fetch(`${API_BASE_URL}/comentarios/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export const fetchComentarioAdicionarMeGusta = async (idComentario) => {
 //Adicionar no me gusta
 export const fetchComentarioAdicionarNoMeGusta = async (idComentario) => {
   try {
-    const response = await fetch(`http://localhost:8080/api/v1/comentarios/${idComentario}/adicionar-no-me-gusta`, {
+    const response = await fetch(`${API_BASE_URL}/comentarios/${idComentario}/adicionar-no-me-gusta`, {
       method: "PUT",
     });
 

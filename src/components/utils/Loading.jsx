@@ -19,7 +19,7 @@ const styles = {
     display: "flex", // Flexbox para centrar
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgba(255, 255, 255, 0)", // Fondo semitransparente
+    backgroundColor: "rgba(0, 0, 0, 0.2)", // Fondo semitransparente
     zIndex: 9999, // Asegura que esté por encima de otros elementos
   },
 };

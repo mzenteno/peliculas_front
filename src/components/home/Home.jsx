@@ -19,14 +19,12 @@ const Home = () => {
   }, [mostSeenLoaded, premiereLoaded, expectedPremiereLoaded]);
 
   return (
-    <>
+    <section className={styles.home}>
       {loading && <Loading />}
-      <section className={styles.home}>
-        <MostSeen setLoaded={setMostSeenLoaded} />
-        <Premiere setLoaded={setPremiereLoaded} />
-        <ExpectedPremiere setLoaded={setExpectedPremiereLoaded} />
-      </section>
-    </>
+      <MostSeen setLoaded={setMostSeenLoaded} />
+      <Premiere setLoaded={setPremiereLoaded} />
+      <ExpectedPremiere setLoaded={setExpectedPremiereLoaded} />
+    </section>
   );
 };
 

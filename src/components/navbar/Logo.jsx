@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "@components/navbar/Navbar.module.css";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <a href="index.html" className={styles.header__logo}>
+    <Link to={"/home"} className="header__nav-link">
       <img src="/img/logo.svg" alt="" />
-    </a>
+    </Link>
   );
 };
 

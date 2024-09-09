@@ -4,7 +4,7 @@ import Premiere from "@components/home/Premiere";
 import ExpectedPremiere from "@components/home/ExpectedPremiere";
 import Loading from "@components/utils/Loading";
 
-const Home = () => {
+const Series = () => {
   const [loading, setLoading] = useState(true);
   const [mostSeenLoaded, setMostSeenLoaded] = useState(false);
   const [premiereLoaded, setPremiereLoaded] = useState(false);
@@ -26,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Series;

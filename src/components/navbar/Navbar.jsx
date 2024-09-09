@@ -1,34 +1,51 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "@components/navbar/Logo";
 import NavbarItem from "@components/navbar/NavbarItem";
-import styles from "@components/navbar/Navbar.module.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    if (document.getElementById("txtBuscar").value.trim()) {
+      document.querySelector(".header__search-btn").click();
+      navigate("/result", { state: { cadenaBusqueda: document.getElementById("txtBuscar").value } });
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      if (document.getElementById("txtBuscar").value.trim()) {
+        document.querySelector(".header__search-btn").click();
+        navigate("/result", { state: { cadenaBusqueda: document.getElementById("txtBuscar").value } });
+      }
+    }
+  };
+
   return (
-    <header className={styles.header}>
-      <div className={styles.header__wrap}>
+    <header className="header">
+      <div className="header__wrap">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className={styles.header__content}>
+              <div className="header__content">
                 <Logo />
-                <ul className={styles.header__nav}>
-                  <NavbarItem href="/home">Inicio</NavbarItem>
+                <ul className="header__nav">
+                  <NavbarItem href="/home">Inicios</NavbarItem>
                   <NavbarItem href="/movies">Peliculas</NavbarItem>
                   <NavbarItem href="/series">Series</NavbarItem>
-                  <NavbarItem href="/help">Ayuda</NavbarItem>
                 </ul>
-                <div className={styles.header__auth}>
-                  <button className={styles["header__search-btn"]} type="button">
+                <div className="header__auth">
+                  <button id="btnBuscar" className="header__search-btn" type="button">
                     <i className="icon ion-ios-search"></i>
                   </button>
 
-                  <a href="signin.html" className={styles["header__sign-in"]}>
+                  <a className="header__sign-in">
                     <i className="icon ion-ios-log-in"></i>
                     <span>Iniciar sesión</span>
                   </a>
                 </div>
-                <button className={styles.header__btn} type="button">
+                <button id="btnMenu" className="header__btn" type="button">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -39,14 +56,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      <form action="#" className={styles.header__search}>
+      <form action="#" className="header__search">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className={styles["header__search-content"]}>
-                <input type="text" id="btnBuscar" placeholder="Buscar película, serie o documental..." />
-
-                <button type="button">Buscar</button>
+              <div className="header__search-content">
+                <input id="txtBuscar" type="text" onKeyDown={handleKeyDown} placeholder="Buscar película, serie o documental..." />
+                <button type="button" onClick={onClick}>
+                  Buscar
+                </button>
               </div>
             </div>
           </div>

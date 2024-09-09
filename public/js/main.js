@@ -13,6 +13,7 @@ $(document).ready(function () {
     if ($(".header__search-btn").hasClass("active")) {
       $(".header__search-btn").toggleClass("active");
       $(".header__search").toggleClass("header__search--active");
+      $(".body").toggleClass("body--active");
     }
   });
 
@@ -22,11 +23,23 @@ $(document).ready(function () {
   $(".header__search-btn").on("click", function () {
     $(this).toggleClass("active");
     $(".header__search").toggleClass("header__search--active");
+    $(".body").toggleClass("body--active");
 
+    document.getElementById("txtBuscar").focus();
     if ($(".header__btn").hasClass("header__btn--active")) {
       $(".header__btn").toggleClass("header__btn--active");
       $(".header__nav").toggleClass("header__nav--active");
       $(".body").toggleClass("body--active");
+    }
+  });
+
+  $(document).on("click", function (event) {
+    if (!$(event.target).closest(".header__search-btn").length && !$(event.target).closest(".header__search").length && !$(event.target).closest(".header__btn").length) {
+      $(".header__search").removeClass("header__search--active");
+      $(".header__search-btn").removeClass("active");
+      $(".header__btn").removeClass("header__btn--active");
+      $(".header__nav").removeClass("header__nav--active");
+      $(".body").removeClass("body--active");
     }
   });
 

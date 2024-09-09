@@ -1,26 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "@components/utils/Card.module.css";
 import { Link } from "react-router-dom";
 
-const ItemDetail = ({ image, title, gener, star, idMovie }) => {
+const ItemDetail = ({ image, title, gener, star, idMovie, style }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.card__cover}>
+    <div className="card" style={style}>
+      <div className="card__cover">
         <img src={image} alt="" />
-        <Link to={`/detail/${idMovie}`} className={styles.card__play}>
+        <Link to={`/detail/${idMovie}`} className="card__play">
           <i className="icon ion-ios-play"></i>
         </Link>
       </div>
-      <div className={styles.card__content}>
-        <h3 className={styles.card__title}>
+      <div className="card__content">
+        <h3 className="card__title">
           <Link to={`/detail/${idMovie}`}>{title}</Link>
         </h3>
-        <span className={styles.card__category}>
+        <span className="card__category">
           <a href="#">Action</a>
           <a href="#">Triler</a>
         </span>
-        <span className={styles.card__rate}>
+        <span className="card__rate">
           <i className="icon ion-ios-star"></i>
           {star}
         </span>
@@ -35,6 +34,7 @@ ItemDetail.propTypes = {
   gener: PropTypes.string.isRequired,
   star: PropTypes.number.isRequired,
   idMovie: PropTypes.number.isRequired,
+  style: PropTypes.object,
 };
 
 export default ItemDetail;

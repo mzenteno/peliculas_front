@@ -4,26 +4,33 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import ItemDetail from "@components/utils/ItemDetail";
-import styles from "@components/home/Home.module.css";
 import { fetchMovieFindAll } from "@services/movie.jsx";
 import useFetch from "@hooks/useFetch.jsx";
 
 const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
+  ultraWideScreen: {
+    breakpoint: { max: 5000, min: 1500 },
     items: 6,
+  },
+  superLargeDesktop: {
+    breakpoint: { max: 1500, min: 1200 },
+    items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 6,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1200, min: 990 },
     items: 4,
   },
+  tablet: {
+    breakpoint: { max: 990, min: 500 },
+    items: 3,
+  },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 500, min: 300 },
     items: 2,
+  },
+  SmallMobile: {
+    breakpoint: { max: 300, min: 0 },
+    items: 1,
   },
 };
 
@@ -31,7 +38,6 @@ const MostSeen = ({ setLoaded }) => {
   const { data: oMovies, loading, error, fetchData } = useFetch();
 
   useEffect(() => {
-    console.log("marcelo");
     fetchData(() => fetchMovieFindAll())
       .catch((error) => console.error(error))
       .finally(() => {
@@ -50,7 +56,7 @@ const MostSeen = ({ setLoaded }) => {
     <div className="container">
       <div className="row">
         <div className="col-12">
-          <h1 className={styles.home__title}>MAS VISTOS</h1>
+          <h1 className="home__title">Mas vistos</h1>
         </div>
 
         <div className="col-12">
@@ -64,7 +70,7 @@ const MostSeen = ({ setLoaded }) => {
             containerClass="container-with-dots"
             dotListClass=""
             focusOnSelect={false}
-            itemClass=""
+            itemClass="custom-carousel-item"
             keyBoardControl
             minimumTouchDrag={80}
             pauseOnHover

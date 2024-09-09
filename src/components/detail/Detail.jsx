@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import stylesCard from "@components/utils/Card.module.css";
 import Loading from "@components/utils/Loading";
 import DetailInfo from "@components/detail/DetailInfo";
 // import DetailVideo from "@components/detail/DetailVideo";
@@ -28,27 +27,27 @@ const Detail = () => {
 
   return (
     <>
-      <section className="section details">
+      <section className="home">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1 className="details__title">{oMovie.titulo}</h1>
+              <h1 className="home__title">{oMovie.titulo}</h1>
             </div>
 
             <div className="col-12">
-              <div className={`${stylesCard.card} ${stylesCard["card--details"]} ${stylesCard["card--series"]}`}>
+              <div className="card card--details card--series">
                 <div className="row">
                   <div className="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                    <div className={stylesCard.card__cover}>
+                    <div className="card__cover">
                       <img id="portada" src={`/img/movies/${oMovie.imagenPortada}`} alt={oMovie.imagenPortada} />
                     </div>
                   </div>
 
                   <div className="col-12 col-sm-8 col-md-8 col-lg-9 col-xl-9">
-                    <div className={stylesCard.card__content}>
+                    <div className="card__content">
                       <DetailInfo star={oMovie.puntos} year={oMovie.anoCreacion} duration={oMovie.duracion} />
 
-                      <div className={`${stylesCard.card__description} ${stylesCard["card__description--details"]}`}>{oMovie.descripcion}</div>
+                      <div className="card__description card__description--details">{oMovie.descripcion}</div>
                     </div>
                   </div>
                 </div>
